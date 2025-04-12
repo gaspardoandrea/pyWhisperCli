@@ -69,7 +69,7 @@ let listManager = function ($) {
             .attr("for", "formInput")
             .addClass("col-form-label")
             .append(label).appendTo(formGroup)
-        $('<input>')
+        let input = $('<input>')
             .attr("type", "text")
             .attr('id', 'formInput')
             .addClass("form-control")
@@ -78,6 +78,13 @@ let listManager = function ($) {
 
         modal.modalBody.append(form)
         modal.modal('show')
+        input.focus()
+        input.on("keypress", function (event ) {
+            if (event.keyCode === 13) {
+                callback()
+                my.modalHide()
+            }
+        });
     }
 
     that.reloadList = function () {
@@ -125,7 +132,7 @@ let listManager = function ($) {
                 {
                     url: url,
                     method: "PUT",
-                    data: {'id': id, 'description': $('#formInput').val()},
+                    data: {'id': id, 'description': $('#formInput').val().trim()},
                     success: that.reloadList
                 })
         })

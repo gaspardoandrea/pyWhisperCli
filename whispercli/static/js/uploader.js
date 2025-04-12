@@ -108,6 +108,7 @@ let fileUploader = function ($) {
             try {
                 if (my.formFile[0].files.length > 0) {
                     my.validateFile(my.formFile[0].files[0])
+                    my.uploadForm.submit()
                 }
             } catch (error) {
                 my.showError(error.message)
