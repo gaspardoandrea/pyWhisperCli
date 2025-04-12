@@ -1,4 +1,5 @@
 import datetime
+from mimetypes import guess_type
 from datetime import datetime
 
 from django.db import models
@@ -56,6 +57,12 @@ class AudioDocument(models.Model):
             return self.uploaded_file.name
         else:
             return self.description
+
+    def get_mime_type(self):
+        return guess_type(self.uploaded_file.url, strict=True)[0]
+
+    def get_resource_link(self):
+        return "/get-audio-for/" + str(self.id)
 
 class AudioDocumentFormSet(ModelForm):
     class Meta:

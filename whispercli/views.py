@@ -69,3 +69,20 @@ def rename_audio_document(request):
         doc.save()
         x = simplejson.dumps('OK')
         return HttpResponse(x)
+
+
+def get_audio_for(request, id):
+    doc = AudioDocument.objects.get(id=id)
+
+    # If you want to respond local file
+    with doc.uploaded_file.open('rb') as xl:
+        binary_data = xl.read()
+
+    file_name = doc.original_file_name
+
+    response = HttpResponse(
+        content_type=doc.get_mime_type(),
+        headers={'Content-Disposition': f'attachment; filename="{file_name}"'},
+    )
+    response.write(binary_data)
+    return response

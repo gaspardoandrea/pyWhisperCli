@@ -11,6 +11,9 @@
             <a class="btn btn-rename-audio-document" data-id="{{ audioDocument.id }}"
                href="/rename-audio-document/"
             >{% bs_icon 'pencil-square' %}</a>
+            <audio controls preload="none" id='audio-{{ audioDocument.id }}' class="d-none">
+                <source src="{{ audioDocument.get_resource_link }}" type="{{ audioDocument.get_mime_type }}">
+            </audio>
         </td>
     </tr>
 {% endfor %}

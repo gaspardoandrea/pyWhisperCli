@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="411ac728-835e-4fe0-99a2-bd5c3a1d5489" name="Changes" comment="Rename audio document" />
+    <list default="true" id="411ac728-835e-4fe0-99a2-bd5c3a1d5489" name="Changes" comment="Rename audio document">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whispercli/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whispercli/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whispercli/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +51,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -132,6 +138,7 @@
       <workItem from="1744467914213" duration="31000" />
       <workItem from="1744476417043" duration="16000" />
       <workItem from="1744482811114" duration="2654000" />
+      <workItem from="1744487699264" duration="1351000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -253,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744487423667</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Rename audio document">
+      <option name="closed" value="true" />
+      <created>1744487727174</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1744487727175</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
