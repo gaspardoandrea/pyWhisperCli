@@ -1,0 +1,29 @@
+{% load bootstrap_icons %}
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>{% translate "PyWhisperCli" %} - {{ version }} - {% block title %}{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/icon.png' %}">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/libs/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'js/uploader.js' %}"></script>
+    <script src="{% static 'js/list.js' %}"></script>
+</head>
+<body>
+<div class="container">
+    <div class="container">
+        <img style="max-height: 24px" class="me-3" src="{% static 'images/icon.png' %}" alt="PyWhisperCli">
+        <span class="navbar-brand">{% translate "PyWhisperCli" %}</span> <code>Ver. {{ version }}</code>
+    </div>
+
+    {% include "nav.html" %}
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>

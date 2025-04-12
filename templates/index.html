@@ -1,0 +1,42 @@
+{% extends "master.html" %}
+{% load bootstrap_icons %}
+{% load i18n %}
+{% block title %}Homepage{% endblock %}
+{% block content %}
+    {% csrf_token %}
+    <div class="uploadFormDiv">
+        <form action="/upload-audio-file/"
+              method="post"
+              enctype="multipart/form-data"
+              name="uploadForm"
+              id="uploadForm">
+            {% csrf_token %}
+            <div class="errorMessage alert alert-danger d-none mb-3 mt-2"></div>
+            <input type="file" id="uploaded_file" name="uploaded_file" class="d-none uploaded_file"
+                   accept="audio/mpeg,audio/mp4,audio/x-aiff,audio/x-mpegurl,audio/ogg,audio/vorbis,audio/vnd.wav"
+            />
+        </form>
+
+        <div class="wrapper">
+            <div class="dropZone d-none">
+                <div class="d-none dropMessage">{% translate "Drag and drop an audio file here or click to select" %}</div>
+            </div>
+            <table class="table audio-file-list">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Uploaded at</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% include "list.html" %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        fileUploader.init(".uploadFormDiv")
+    </script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% load i18n %}
+{% load bootstrap_icons %}
+<nav class="navbar navbar-expand-sm mt-4">
+    <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+            <a class="nav-link"
+               href="/">{% bs_icon 'house' %}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link add-file{% if disable_add_file %} disabled{% endif %}"
+               href="#">{% bs_icon 'cloud-plus' %} {% translate "Add audio file" %}</a>
+        </li>
+        <li class="nav-item dropdown nav-model-list">
+            {% include "modelList.html" %}
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"
+               href="/about/">{% bs_icon 'info-circle' %} {% translate "About" %}</a>
+        </li>
+    </ul>
+</nav>

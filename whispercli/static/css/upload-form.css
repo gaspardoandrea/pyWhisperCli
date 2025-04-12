@@ -1,0 +1,30 @@
+.uploadFormDiv {
+    .wrapper {
+        position: relative;
+    }
+
+    .dropZone {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+
+        .dropMessage {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7);
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: #ccc dotted;
+        }
+    }
+
+    .audio-file-list {
+        background-color: #fafafa;
+        min-height: 20vh;
+    }
+}

@@ -1,0 +1,16 @@
+{% load bootstrap_icons %}
+{% for audioDocument in audioDocuments %}
+    <tr>
+        <th scope="row">{{ audioDocument.id }}</th>
+        <td title="{{ audioDocument.original_file_name }}" class="list-document-name">{{ audioDocument.get_label }}</td>
+        <td>{{ audioDocument.uploaded_at }}</td>
+        <td>
+            <a class="btn btn-delete-audio-document" data-id="{{ audioDocument.id }}"
+               href="/delete-audio-document/"
+            >{% bs_icon 'trash3' %}</a>
+            <a class="btn btn-rename-audio-document" data-id="{{ audioDocument.id }}"
+               href="/rename-audio-document/"
+            >{% bs_icon 'pencil-square' %}</a>
+        </td>
+    </tr>
+{% endfor %}

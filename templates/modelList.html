@@ -1,0 +1,13 @@
+{% load i18n %}
+<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+   aria-expanded="false">
+    {% translate "Model" %} ({{ settings.get_model_name }})
+</a>
+<ul class="dropdown-menu model-list">
+    {% for model in models %}
+        <li><a class="dropdown-item {% if settings.current_model == model.0 %}
+                   active
+               {% endif %}" href="/set-model"
+               data-model-name="{{ model.0 }}">{{ model.1 }}</a></li>
+    {% endfor %}
+</ul>
