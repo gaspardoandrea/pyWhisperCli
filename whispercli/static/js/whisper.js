@@ -16,12 +16,23 @@ let whisperManager = function ($) {
     let my = {}
     let that = {}
 
+    my.setWorking = function (el, working) {
+        if (working) {
+            el.parents('tr').addClass("whisper-working")
+        } else {
+            el.parents('tr').removeClass("whisper-working")
+        }
+    }
+
     my.startTranscribe = function (event) {
+        my.setWorking($(this), true)
         event.stopPropagation()
         event.preventDefault()
         window.csrftoken = $('[name="csrfmiddlewaretoken"]').val()
         $.post($(this).attr('href'), {}, function (results) {
+            listManager.reloadList()
             console.log(results)
+            my.setWorking($(this), false)
         })
 
     }

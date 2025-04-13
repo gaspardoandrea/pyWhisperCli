@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="411ac728-835e-4fe0-99a2-bd5c3a1d5489" name="Changes" comment="Whisper as sync">
+    <list default="true" id="411ac728-835e-4fe0-99a2-bd5c3a1d5489" name="Changes" comment="Whisper as sync: css and fixes">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/25cc66af-9177-467a-85bf-cff0ecfdc4db.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/25cc66af-9177-467a-85bf-cff0ecfdc4db.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bottom-nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bottom-nav.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/whispercli/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/whispercli/static/css/media.css" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/static/css/media.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whispercli/static/js/list.js" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/static/js/list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whispercli/transcribe.py" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/transcribe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whispercli/static/js/whisper.js" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/static/js/whisper.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +142,7 @@
       <workItem from="1744487699264" duration="1394000" />
       <workItem from="1744489250082" duration="636000" />
       <workItem from="1744530242393" duration="115000" />
-      <workItem from="1744538640200" duration="16769000" />
+      <workItem from="1744538640200" duration="19815000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -339,7 +336,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744555400604</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Whisper as sync: css and fixes">
+      <option name="closed" value="true" />
+      <created>1744558946538</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1744558946539</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,7 +369,8 @@
     <MESSAGE value="Progress bar and timer" />
     <MESSAGE value="Seek audio" />
     <MESSAGE value="Whisper as sync" />
-    <option name="LAST_COMMIT_MESSAGE" value="Whisper as sync" />
+    <MESSAGE value="Whisper as sync: css and fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Whisper as sync: css and fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

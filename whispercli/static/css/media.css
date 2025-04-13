@@ -8,6 +8,10 @@ table {
     tr.playing-now:hover {
         background-color: rgba(115, 255, 0, 0.22);
     }
+
+    .whisper-working {
+        font-weight: bolder;
+    }
 }
 
 .progress {

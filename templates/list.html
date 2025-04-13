@@ -13,13 +13,13 @@
             </div>
         </td>
         <td title="{{ audioDocument.original_file_name }}" class="list-document-name">{{ audioDocument.get_label }}</td>
-        <td>{{ audioDocument.uploaded_at }}</td>
+        <td>{{ audioDocument.uploaded_at|date:"d/m/y H:m" }}</td>
         <td>
             <div class="btn-group btn-group-sm" role="group" aria-label="media">
             <a class="btn btn-outline-primary btn-rename-audio-document"
                data-id="{{ audioDocument.id }}" title="Rename"
                href="/rename-audio-document/">{% bs_icon 'pencil-square' %}</a>
-            <a class="btn btn-outline-success btn-transcribe-audio-document"
+            <a class="btn btn-outline-success btn-transcribe-audio-document{% if audioDocument.has_transcription %} disabled{% endif %}"
                data-id="{{ audioDocument.id }}" title="Transcribe"
                href="/transcribe/{{ audioDocument.id }}/">{% bs_icon 'voicemail' %}</a>
             <a class="btn btn-outline-danger btn-delete-audio-document"
