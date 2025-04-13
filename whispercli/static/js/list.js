@@ -65,6 +65,11 @@ let listManager = function ($) {
         let modal = my.buildModal(message, title, callback)
         let form = $('<form>')
         let formGroup = $('<div>').addClass("form-group").appendTo(form)
+        form.on('submit', function (event) {
+            event.stopPropagation()
+            event.preventDefault()
+        })
+
         $('<label>')
             .attr("for", "formInput")
             .addClass("col-form-label")
@@ -141,6 +146,7 @@ let listManager = function ($) {
     my.initTableEvents = function () {
         $('.audio-file-list .btn-delete-audio-document').click(my.deleteAudioDocument)
         $('.audio-file-list .btn-rename-audio-document').click(my.renameAudioDocument)
+        mediaManager.initEvents()
     }
 
     my.initEvents = function () {

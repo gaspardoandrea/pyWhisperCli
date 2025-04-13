@@ -6,11 +6,15 @@
         <td>{{ audioDocument.uploaded_at }}</td>
         <td>
             <a class="btn btn-delete-audio-document" data-id="{{ audioDocument.id }}"
-               href="/delete-audio-document/"
-            >{% bs_icon 'trash3' %}</a>
+               href="/delete-audio-document/">{% bs_icon 'trash3' %}</a>
             <a class="btn btn-rename-audio-document" data-id="{{ audioDocument.id }}"
-               href="/rename-audio-document/"
-            >{% bs_icon 'pencil-square' %}</a>
+               href="/rename-audio-document/">{% bs_icon 'pencil-square' %}</a>
+            <a class="btn btn-play-audio-document" data-id="{{ audioDocument.id }}"
+               href="#">{% bs_icon 'play-circle-fill' %}</a>
+            <a class="btn btn-pause-audio-document disabled" data-id="{{ audioDocument.id }}"
+               href="#">{% bs_icon 'pause-circle-fill' %}</a>
+            <a class="btn btn-stop-audio-document disabled" data-id="{{ audioDocument.id }}"
+               href="#">{% bs_icon 'stop-circle-fill' %}</a>
             <audio controls preload="none" id='audio-{{ audioDocument.id }}' class="d-none">
                 <source src="{{ audioDocument.get_resource_link }}" type="{{ audioDocument.get_mime_type }}">
             </audio>
