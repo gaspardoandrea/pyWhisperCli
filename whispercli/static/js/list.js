@@ -84,7 +84,7 @@ let listManager = function ($) {
         modal.modalBody.append(form)
         modal.modal('show')
         input.focus()
-        input.on("keypress", function (event ) {
+        input.on("keypress", function (event) {
             if (event.keyCode === 13) {
                 callback()
                 my.modalHide()
@@ -103,7 +103,10 @@ let listManager = function ($) {
         let url = $(this).attr('href')
         let data = $(this).data('modelName')
         $.post(url, {'model': data}, function () {
-            $(".nav-model-list").load('/get-model-list/', null, my.initModelEvents)
+            $(".nav-model-list").load('/get-model-list/', null, function () {
+                my.initModelEvents()
+                that.reloadList()
+            })
         })
     }
 

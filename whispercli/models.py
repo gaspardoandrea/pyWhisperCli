@@ -33,7 +33,6 @@ class Settings(models.Model):
             settings.save()
         return settings
 
-
 class AudioDocument(models.Model):
     # noinspection PyMethodMayBeStatic
     def calc_name(self, filename: str):
@@ -63,6 +62,14 @@ class AudioDocument(models.Model):
 
     def get_resource_link(self):
         return "/get-audio-for/" + str(self.id) + "/"
+
+class Transcription(models.Model):
+    audio_document = models.ForeignKey(AudioDocument, on_delete=models.CASCADE, null=False, blank=False)
+    started_at = models.DateTimeField(auto_now_add=True, null=False)
+    ended_at = models.DateTimeField(null=True, blank=True)
+    json_data = models.TextField(null=True, blank=True)
+    model = models.CharField(max_length=10, choices=MODELS, blank=False, null=False)
+
 
 class AudioDocumentFormSet(ModelForm):
     class Meta:

@@ -2,21 +2,30 @@
 {% for audioDocument in audioDocuments %}
     <tr>
         <th scope="row">{{ audioDocument.id }}</th>
+        <td>
+            <div class="btn-group btn-group-sm" role="group" aria-label="media">
+                <a class="btn btn-success btn-play-audio-document" data-id="{{ audioDocument.id }}"
+                   href="#">{% bs_icon 'play-circle-fill' %}</a>
+                <a class="btn btn-success btn-pause-audio-document disabled" data-id="{{ audioDocument.id }}"
+                   href="#">{% bs_icon 'pause-circle-fill' %}</a>
+                <a class="btn btn-success btn-stop-audio-document disabled" data-id="{{ audioDocument.id }}"
+                   href="#">{% bs_icon 'stop-circle-fill' %}</a>
+            </div>
+        </td>
         <td title="{{ audioDocument.original_file_name }}" class="list-document-name">{{ audioDocument.get_label }}</td>
         <td>{{ audioDocument.uploaded_at }}</td>
         <td>
-            <a class="btn btn-sm m-1 btn-primary btn-rename-audio-document" data-id="{{ audioDocument.id }}"
+            <div class="btn-group btn-group-sm" role="group" aria-label="media">
+            <a class="btn btn-outline-primary btn-rename-audio-document"
+               data-id="{{ audioDocument.id }}" title="Rename"
                href="/rename-audio-document/">{% bs_icon 'pencil-square' %}</a>
-            <a class="btn btn-sm m-1 btn-primary btn-play-audio-document" data-id="{{ audioDocument.id }}"
-               href="#">{% bs_icon 'play-circle-fill' %}</a>
-            <a class="btn btn-sm m-1 btn-primary btn-pause-audio-document disabled" data-id="{{ audioDocument.id }}"
-               href="#">{% bs_icon 'pause-circle-fill' %}</a>
-            <a class="btn btn-sm m-1 btn-primary btn-stop-audio-document disabled" data-id="{{ audioDocument.id }}"
-               href="#">{% bs_icon 'stop-circle-fill' %}</a>
-            <a class="btn btn-sm m-1 btn-outline-danger btn-transcribe-audio-document" data-id="{{ audioDocument.id }}"
-               href="/transcribe/{{ audioDocument.id }}/">{% bs_icon 'cpu-fill' %}</a>
-            <a class="btn btn-sm m-1 btn-danger btn-delete-audio-document" data-id="{{ audioDocument.id }}"
+            <a class="btn btn-outline-success btn-transcribe-audio-document"
+               data-id="{{ audioDocument.id }}" title="Transcribe"
+               href="/transcribe/{{ audioDocument.id }}/">{% bs_icon 'voicemail' %}</a>
+            <a class="btn btn-outline-danger btn-delete-audio-document"
+               data-id="{{ audioDocument.id }}" title="Delete"
                href="/delete-audio-document/">{% bs_icon 'trash3' %}</a>
+            </div>
             <audio controls preload="none" id='audio-{{ audioDocument.id }}' class="d-none">
                 <source src="{{ audioDocument.get_resource_link }}" type="{{ audioDocument.get_mime_type }}">
             </audio>
