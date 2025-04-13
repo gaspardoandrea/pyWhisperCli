@@ -147,6 +147,7 @@ let listManager = function ($) {
         $('.audio-file-list .btn-delete-audio-document').click(my.deleteAudioDocument)
         $('.audio-file-list .btn-rename-audio-document').click(my.renameAudioDocument)
         mediaManager.initEvents()
+        whisperManager.initEvents()
     }
 
     my.initEvents = function () {

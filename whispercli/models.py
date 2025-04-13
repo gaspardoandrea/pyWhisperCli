@@ -36,7 +36,7 @@ class Settings(models.Model):
 
 class AudioDocument(models.Model):
     # noinspection PyMethodMayBeStatic
-    def calc_name(self, filename):
+    def calc_name(self, filename: str):
         dt = datetime.now()
         # noinspection PyArgumentList
         ts = int(datetime.timestamp(dt))

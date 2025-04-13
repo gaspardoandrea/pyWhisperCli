@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="411ac728-835e-4fe0-99a2-bd5c3a1d5489" name="Changes" comment="Progress bar and timer">
+    <list default="true" id="411ac728-835e-4fe0-99a2-bd5c3a1d5489" name="Changes" comment="Seek audio">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whispercli/static/css/media.css" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/static/css/media.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whispercli/static/js/media.js" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/static/js/media.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PyWhisperCli/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PyWhisperCli/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/master.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whispercli/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whispercli/static/js/list.js" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/static/js/list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whispercli/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/whispercli/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,9 +26,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Python Script" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -140,7 +144,7 @@
       <workItem from="1744487699264" duration="1394000" />
       <workItem from="1744489250082" duration="636000" />
       <workItem from="1744530242393" duration="115000" />
-      <workItem from="1744538640200" duration="11722000" />
+      <workItem from="1744538640200" duration="13950000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -310,7 +314,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744549162395</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Seek audio">
+      <option name="closed" value="true" />
+      <created>1744552880242</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1744552880242</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +345,8 @@
     <MESSAGE value="Daphne integration" />
     <MESSAGE value="Media management" />
     <MESSAGE value="Progress bar and timer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Progress bar and timer" />
+    <MESSAGE value="Seek audio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Seek audio" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -347,6 +360,11 @@
           <url>file://$PROJECT_DIR$/whispercli/views.py</url>
           <line>98</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/whispercli/transcribe.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

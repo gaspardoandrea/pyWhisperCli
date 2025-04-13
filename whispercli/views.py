@@ -1,5 +1,4 @@
 import os
-from idlelib.browser import file_open
 from mimetypes import guess_type
 
 import simplejson
@@ -9,6 +8,7 @@ from django.http import QueryDict
 
 from PyWhisperCli.settings import BASE_DIR
 from whispercli.models import Whispercli, Settings, MODELS, AudioDocument, AudioDocumentFormSet
+from whispercli.transcribe import Transcriber
 
 
 def index(request):
@@ -76,8 +76,8 @@ def rename_audio_document(request):
         return HttpResponse(x)
 
 
-def get_audio_for(request, id):
-    doc = AudioDocument.objects.get(id=id)
+def get_audio_for(request, doc_id):
+    doc = AudioDocument.objects.get(id=doc_id)
 
     # If you want to respond local file
     with doc.uploaded_file.open('rb') as xl:
@@ -106,3 +106,11 @@ def serve_static(request, file_path):
     response.write(f.read())
     f.close()
     return response
+
+def transcribe(request, doc_id):
+    if request.method == "POST":
+        doc = AudioDocument.objects.get(id=doc_id)
+        t = Transcriber()
+        x = simplejson.dumps({'id': t.transcribe(doc)})
+
+        return HttpResponse(x)
