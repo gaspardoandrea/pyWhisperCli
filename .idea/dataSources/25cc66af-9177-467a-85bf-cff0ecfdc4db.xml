@@ -499,7 +499,7 @@
     <routine id="190" parent="1" name="fts5"/>
     <schema id="191" parent="1" name="main">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-04-13.16:09:19</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-04-13.17:08:42</LastIntrospectionLocalTimestamp>
     </schema>
     <argument id="192" parent="16">
       <ArgumentDirection>R</ArgumentDirection>
@@ -2089,56 +2089,59 @@ model</ColNames>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="670" parent="569" name="id">
+    <check id="670" parent="569">
+      <Predicate>(JSON_VALID(&quot;json_data&quot;) OR &quot;json_data&quot; IS NULL)</Predicate>
+    </check>
+    <column id="671" parent="569" name="id">
       <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="671" parent="569" name="started_at">
+    <column id="672" parent="569" name="started_at">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="672" parent="569" name="ended_at">
+    <column id="673" parent="569" name="ended_at">
       <Position>3</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="673" parent="569" name="json_data">
-      <Position>4</Position>
-      <StoredType>text|0s</StoredType>
-    </column>
     <column id="674" parent="569" name="audio_document_id">
       <NotNull>1</NotNull>
-      <Position>5</Position>
+      <Position>4</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
     <column id="675" parent="569" name="model">
       <NotNull>1</NotNull>
-      <Position>6</Position>
+      <Position>5</Position>
       <StoredType>varchar(10)|0s</StoredType>
     </column>
-    <foreign-key id="676" parent="569">
+    <column id="676" parent="569" name="json_data">
+      <Position>6</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <foreign-key id="677" parent="569">
       <ColNames>audio_document_id</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
       <RefColNames>id</RefColNames>
       <RefTableName>whispercli_audiodocument</RefTableName>
     </foreign-key>
-    <index id="677" parent="569" name="sqlite_autoindex_whispercli_transcription_1">
+    <index id="678" parent="569" name="sqlite_autoindex_whispercli_transcription_1">
       <ColNames>audio_document_id
 model</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <index id="678" parent="569" name="whispercli_transcription_audio_document_id_87451d1f">
+    <index id="679" parent="569" name="whispercli_transcription_audio_document_id_87451d1f">
       <ColNames>audio_document_id</ColNames>
     </index>
-    <key id="679" parent="569">
+    <key id="680" parent="569">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="680" parent="569" name="unique_transcription">
+    <key id="681" parent="569" name="unique_transcription">
       <ColNames>audio_document_id
 model</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_whispercli_transcription_1</UnderlyingIndexName>

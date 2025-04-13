@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+{% block content %}
+    <h1 class="mb-5">
+        <code>{{ transcription.id }}</code>
+        {{ transcription.audio_document.description }}
+    </h1>
+    {% for p in paragraphs %}
+    <p class="mb-4">
+        {% for segment in p %}
+            <code data-start="{{ segment.start }}" data-end="{{ segment.end }}">
+                {{ segment.get_formatted_start }}
+            </code> {{ segment.text }}
+        {% endfor %}
+    </p>
+    {% endfor %}
+{% endblock %}

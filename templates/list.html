@@ -12,19 +12,23 @@
                    href="#">{% bs_icon 'stop-circle-fill' %}</a>
             </div>
         </td>
-        <td title="{{ audioDocument.original_file_name }}" class="list-document-name">{{ audioDocument.get_label }}</td>
+        <td title="{{ audioDocument.original_file_name }}" class="list-document-name">
+            {% if audioDocument.has_transcription_done %}<a href="{% url "transcription" audioDocument.id %}">{% endif %}
+            {{ audioDocument.get_label }}
+            {% if audioDocument.has_transcription_done %}</a>{% endif %}
+        </td>
         <td>{{ audioDocument.uploaded_at|date:"d/m/y H:m" }}</td>
         <td>
             <div class="btn-group btn-group-sm" role="group" aria-label="media">
             <a class="btn btn-outline-primary btn-rename-audio-document"
                data-id="{{ audioDocument.id }}" title="Rename"
-               href="/rename-audio-document/">{% bs_icon 'pencil-square' %}</a>
-            <a class="btn btn-outline-success btn-transcribe-audio-document{% if audioDocument.has_transcription %} disabled{% endif %}"
+               href="{% url 'rename-audio-document' %}">{% bs_icon 'pencil-square' %}</a>
+            <a class="btn {% if audioDocument.has_transcription %}btn-outline-success{% else %}btn-success{% endif %} btn-transcribe-audio-document{% if audioDocument.has_transcription %} disabled{% endif %}"
                data-id="{{ audioDocument.id }}" title="Transcribe"
-               href="/transcribe/{{ audioDocument.id }}/">{% bs_icon 'voicemail' %}</a>
+               href="{% url 'transcribe' audioDocument.id %}">{% bs_icon 'voicemail' %}</a>
             <a class="btn btn-outline-danger btn-delete-audio-document"
                data-id="{{ audioDocument.id }}" title="Delete"
-               href="/delete-audio-document/">{% bs_icon 'trash3' %}</a>
+               href="{% url 'delete-audio-document' %}">{% bs_icon 'trash3' %}</a>
             </div>
             <audio controls preload="none" id='audio-{{ audioDocument.id }}' class="d-none">
                 <source src="{{ audioDocument.get_resource_link }}" type="{{ audioDocument.get_mime_type }}">

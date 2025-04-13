@@ -4,7 +4,7 @@
     <ul class="navbar-nav me-auto">
         <li class="nav-item">
             <a class="nav-link"
-               href="/">{% bs_icon 'house' %}</a>
+               href="{% url 'index' %}">{% bs_icon 'house' %}</a>
         </li>
         <li class="nav-item">
             <a class="nav-link add-file{% if disable_add_file %} disabled{% endif %}"
@@ -15,7 +15,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link"
-               href="/about/">{% bs_icon 'info-circle' %} {% translate "About" %}</a>
+               href="{% url 'about' %}">{% bs_icon 'info-circle' %} {% translate "About" %}</a>
         </li>
     </ul>
 </nav>

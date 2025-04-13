@@ -7,7 +7,7 @@ from django.shortcuts import render
 from django.http import QueryDict
 
 from PyWhisperCli.settings import BASE_DIR
-from whispercli.models import Whispercli, Settings, MODELS, AudioDocument, AudioDocumentFormSet
+from whispercli.models import Whispercli, Settings, MODELS, AudioDocument, AudioDocumentFormSet, Transcription
 from whispercli.transcribe import Transcriber
 
 
@@ -107,6 +107,7 @@ def serve_static(request, file_path):
     f.close()
     return response
 
+
 def transcribe(request, doc_id):
     if request.method == "POST":
         doc = AudioDocument.objects.get(id=doc_id)
@@ -114,3 +115,20 @@ def transcribe(request, doc_id):
         x = simplejson.dumps({'id': t.transcribe(doc)})
 
         return HttpResponse(x)
+
+
+def transcription(request, doc_id):
+    settings = Settings.get_settings()
+    model = settings.current_model
+    tr = Transcription.objects.filter(model=model).filter(audio_document=doc_id).first()
+    paragraphs = tr.get_paragraphs()
+    context = {
+        'settings': Settings.get_settings(),
+        'version': Whispercli.version,
+        'models': MODELS,
+        'disable_add_file': True,
+        'transcription': tr,
+        'paragraphs': paragraphs,
+    }
+
+    return render(request, 'transcription.html', context)

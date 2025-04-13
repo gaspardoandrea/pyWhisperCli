@@ -13,5 +13,6 @@ urlpatterns = [
     path("get-audio-for/<int:doc_id>/", views.get_audio_for, name="get-audio-for"),
     path("about/", views.about, name="about"),
     path("transcribe/<int:doc_id>/", views.transcribe, name="transcribe"),
+    path("transcription/<int:doc_id>/", views.transcription, name="transcription"),
     re_path(r"^static/(.*)/?$", views.serve_static, name="serve_static"),
 ]

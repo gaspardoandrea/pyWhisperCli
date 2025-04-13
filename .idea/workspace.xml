@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="411ac728-835e-4fe0-99a2-bd5c3a1d5489" name="Changes" comment="Whisper as sync: css and fixes">
+    <list default="true" id="411ac728-835e-4fe0-99a2-bd5c3a1d5489" name="Changes" comment="Transcriptions synch">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/25cc66af-9177-467a-85bf-cff0ecfdc4db.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/25cc66af-9177-467a-85bf-cff0ecfdc4db.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/master.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/modelList.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modelList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nav.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/whispercli/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whispercli/static/css/media.css" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/static/css/media.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whispercli/static/js/whisper.js" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/static/js/whisper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whispercli/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whispercli/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +54,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
+    "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "list.type.of.created.stylesheet": "CSS",
@@ -142,7 +145,7 @@
       <workItem from="1744487699264" duration="1394000" />
       <workItem from="1744489250082" duration="636000" />
       <workItem from="1744530242393" duration="115000" />
-      <workItem from="1744538640200" duration="19815000" />
+      <workItem from="1744538640200" duration="27028000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -344,7 +347,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744558946539</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Transcriptions synch">
+      <option name="closed" value="true" />
+      <created>1744562787458</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1744562787458</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,7 +381,8 @@
     <MESSAGE value="Seek audio" />
     <MESSAGE value="Whisper as sync" />
     <MESSAGE value="Whisper as sync: css and fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Whisper as sync: css and fixes" />
+    <MESSAGE value="Transcriptions synch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Transcriptions synch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -387,5 +399,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Python.DjangoServer">
+        <watch expression="self.model" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -19,12 +19,19 @@
 <body>
 <div class="container">
     <div class="container">
-        <img style="max-height: 24px" class="me-3" src="{% static 'images/icon.png' %}" alt="PyWhisperCli">
-        <span class="navbar-brand">{% translate "PyWhisperCli" %}</span> <code>Ver. {{ version }}</code>
+        <a href="{% url 'index' %}">
+            <img style="max-height: 24px" class="me-3" src="{% static 'images/icon.png' %}" alt="PyWhisperCli">
+            <span class="navbar-brand">{% translate "PyWhisperCli" %}</span> <code>Ver. {{ version }}</code>
+        </a>
     </div>
 
-    {% include "nav.html" %}
-    {% include "bottom-nav.html" %}
+    {% if not disable_add_file %}
+        {% include "nav.html" %}
+        {% include "bottom-nav.html" %}
+    {% else %}
+        <div class="my-5"></div>
+    {% endif %}
+
     {% block content %}
     {% endblock %}
 </div>
