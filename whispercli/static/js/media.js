@@ -117,6 +117,16 @@ let mediaManager = function ($) {
         my.pauseAudio(false)
     }
 
+    my.seekFromClick = function (event) {
+        let total = $(this).width()
+        let objLeft = $(this).offset().left;
+        let clickOn = event.pageX - objLeft
+        let perc = clickOn / total
+        if (my.playing !== null) {
+            my.playing[0].currentTime = my.playing.data("duration") * perc
+        }
+    }
+
     that.initEvents = function () {
         $(".btn-play-audio-document").click(my.playFromRow)
         $(".btn-stop-audio-document").click(my.stopFromRow)
@@ -127,6 +137,7 @@ let mediaManager = function ($) {
         my.progress = $('.progress')
         my.playingNowTime = my.progress.parent().find('.playing-now-time')
         my.playingNowTotalTime = my.progress.parent().find('.playing-total-time')
+        my.progress.click(my.seekFromClick)
     }
 
     $(my.init);

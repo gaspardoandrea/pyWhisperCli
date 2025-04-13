@@ -83,11 +83,13 @@ def get_audio_for(request, id):
     with doc.uploaded_file.open('rb') as xl:
         binary_data = xl.read()
 
-    file_name = doc.original_file_name
-
     response = HttpResponse(
         content_type=doc.get_mime_type(),
-        headers={'Content-Disposition': f'attachment; filename="{file_name}"'},
+        headers={
+            'Content-Disposition': 'inline',
+            'accept-ranges': 'bytes',
+            'Content-Length': str(len(binary_data)),
+        },
     )
     response.write(binary_data)
     return response

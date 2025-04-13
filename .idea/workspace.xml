@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="411ac728-835e-4fe0-99a2-bd5c3a1d5489" name="Changes" comment="Media management">
+    <list default="true" id="411ac728-835e-4fe0-99a2-bd5c3a1d5489" name="Changes" comment="Progress bar and timer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/master.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nav.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whispercli/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whispercli/static/css/media.css" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/static/css/media.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/whispercli/static/js/media.js" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/static/js/media.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whispercli/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/whispercli/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +140,7 @@
       <workItem from="1744487699264" duration="1394000" />
       <workItem from="1744489250082" duration="636000" />
       <workItem from="1744530242393" duration="115000" />
-      <workItem from="1744538640200" duration="9094000" />
+      <workItem from="1744538640200" duration="11722000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -303,7 +302,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744545042785</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Progress bar and timer">
+      <option name="closed" value="true" />
+      <created>1744549162395</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1744549162395</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,7 +332,8 @@
     <MESSAGE value="Modal fixes" />
     <MESSAGE value="Daphne integration" />
     <MESSAGE value="Media management" />
-    <option name="LAST_COMMIT_MESSAGE" value="Media management" />
+    <MESSAGE value="Progress bar and timer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Progress bar and timer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -337,7 +345,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/whispercli/views.py</url>
-          <line>96</line>
+          <line>98</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
