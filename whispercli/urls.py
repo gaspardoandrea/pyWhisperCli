@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 
 from . import views
 
@@ -12,4 +12,5 @@ urlpatterns = [
     path("rename-audio-document/", views.rename_audio_document, name="rename-audio-document"),
     path("get-audio-for/<int:id>/", views.get_audio_for, name="get-audio-for"),
     path("about/", views.about, name="about"),
+    re_path(r"^static/(.*)/?$", views.serve_static, name="serve_static"),
 ]

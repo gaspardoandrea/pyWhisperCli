@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from os import path
 from pathlib import Path
+import PyWhisperCli
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'daphne',
     'django.contrib.staticfiles',
     'whispercli.apps.WhispercliConfig',
     'debug_toolbar',
@@ -58,6 +60,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'PyWhisperCli.urls'
+ASGI_APPLICATION = 'PyWhisperCli.asgi.application'
 
 TEMPLATES = [
     {
@@ -123,6 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

@@ -1,8 +1,13 @@
+import os
+from idlelib.browser import file_open
+from mimetypes import guess_type
+
 import simplejson
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.http import QueryDict
 
+from PyWhisperCli.settings import BASE_DIR
 from whispercli.models import Whispercli, Settings, MODELS, AudioDocument, AudioDocumentFormSet
 
 
@@ -85,4 +90,17 @@ def get_audio_for(request, id):
         headers={'Content-Disposition': f'attachment; filename="{file_name}"'},
     )
     response.write(binary_data)
+    return response
+
+
+def serve_static(request, file_path):
+    file_path = os.path.join(BASE_DIR, "static", str(file_path).replace("/", "\\"))
+    mime = guess_type(file_path, strict=True)[0]
+    response = HttpResponse(
+        content_type=mime,
+        headers={'Content-Disposition': 'inline'},
+    )
+    f = open(file_path, 'rb')
+    response.write(f.read())
+    f.close()
     return response
