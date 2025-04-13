@@ -62,7 +62,7 @@ class AudioDocument(models.Model):
         return guess_type(self.uploaded_file.url, strict=True)[0]
 
     def get_resource_link(self):
-        return "/get-audio-for/" + str(self.id)
+        return "/get-audio-for/" + str(self.id) + "/"
 
 class AudioDocumentFormSet(ModelForm):
     class Meta:

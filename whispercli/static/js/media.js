@@ -7,10 +7,12 @@ let mediaManager = function ($) {
         return audio.parents("tr")
     }
 
-    my.setNotPlaying = function (audio) {
+    my.setNotPlaying = function (audio, stop) {
         let row = my.rowFromAudio(audio)
         row.removeClass('playing-now')
-        row.find('.btn-stop-audio-document').addClass('disabled')
+        if (stop) {
+            row.find('.btn-stop-audio-document').addClass('disabled')
+        }
         row.find('.btn-pause-audio-document').addClass('disabled')
     }
 
@@ -22,32 +24,84 @@ let mediaManager = function ($) {
     }
 
     my.fileNameFromAudio = function (audio) {
+        // noinspection JSCheckFunctionSignatures
         return audio.parents('tr').find('.list-document-name').attr('title')
+    }
+
+
+    my.updatePlayingNow = function () {
+        let currentTime = 0
+        if (my.playing) {
+            currentTime = my.playing[0].currentTime
+        }
+        my.playingNowTime.find('code').text(my.formatTime(currentTime))
+
+        let val = Math.ceil(100 * currentTime / my.playing.data("duration"))
+        my.progress.find('.progress-bar')
+            .css("width", val + "%")
+            .attr('aria-valuenow', val)
+    }
+
+    my.startTimer = function () {
+        my.timer = setInterval(my.updatePlayingNow, 500)
+        my.progress.removeClass("invisible")
+    }
+
+    my.stopTimer = function () {
+        if (my.timer) {
+            clearTimeout(my.timer)
+        }
+        my.progress.addClass("invisible")
     }
 
     my.playAudio = function (audio) {
         if (my.playing !== null) {
-            my.setNotPlaying(my.playing)
+            my.setNotPlaying(my.playing, true)
             my.playing[0].pause()
         }
+        if (!audio.data("duration")) {
+            audio.on("loadedmetadata", function () {
+                audio.data("duration", audio[0].duration)
+                my.playingNowTotalTime.find('code').text(my.formatTime(audio.data("duration")))
+            })
+        }
+
+        audio.on("ended", my.stopAudio)
+
         audio[0].play()
         my.playing = audio
         my.setPlaying(my.playing)
-        $('nav .playing-now span').text(my.fileNameFromAudio(my.playing))
+        my.playingNowTime.attr("title", my.fileNameFromAudio(my.playing))
+
+        if (audio.data("duration")) {
+            my.playingNowTotalTime.find('code').text(my.formatTime(audio.data("duration")))
+        }
+        my.startTimer()
+    }
+
+    my.formatTime = function (seconds) {
+        const date = new Date(null)
+        date.setSeconds(seconds)
+        return date.toISOString().slice(11, 19);
     }
 
     my.stopAudio = function () {
-        if (my.playing !== null) {
-            my.pauseAudio()
-            my.playing[0].currentTime = 0
+        if (my.playing === null) {
+            return;
         }
+        my.pauseAudio(true)
+        my.playing[0].currentTime = 0
+        my.playingNowTime.attr("title", "")
+        my.playingNowTotalTime.find('code').text(my.formatTime(0))
+        my.stopTimer()
+        my.playingNowTime.find('code').text(my.formatTime(0))
+        my.updatePlayingNow()
     }
 
-    my.pauseAudio = function () {
+    my.pauseAudio = function (stop) {
         if (my.playing !== null) {
-            my.setNotPlaying(my.playing)
+            my.setNotPlaying(my.playing, stop)
             my.playing[0].pause()
-            $('nav .playing-now span').html("&hellip;")
         }
     }
 
@@ -60,7 +114,7 @@ let mediaManager = function ($) {
     }
 
     my.pauseFromRow = function () {
-        my.pauseAudio()
+        my.pauseAudio(false)
     }
 
     that.initEvents = function () {
@@ -70,6 +124,9 @@ let mediaManager = function ($) {
     }
 
     my.init = function () {
+        my.progress = $('.progress')
+        my.playingNowTime = my.progress.parent().find('.playing-now-time')
+        my.playingNowTotalTime = my.progress.parent().find('.playing-total-time')
     }
 
     $(my.init);

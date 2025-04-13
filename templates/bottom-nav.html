@@ -1,0 +1,16 @@
+{% load i18n %}
+{% load bootstrap_icons %}
+<div class="d-flex">
+    <div class="nav-item playing-now-time p-2">
+        {% bs_icon 'clock-history' %} <code>00:00:00</code>
+    </div>
+    <div class="nav-item progress flex-grow-1 invisible mt-3">
+        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 0"
+             aria-valuenow="0"
+             aria-valuemin="0"
+             aria-valuemax="100"></div>
+    </div>
+    <div class="nav-item playing-total-time p-2">
+        <code>00:00:00</code>
+    </div>
+</div>
