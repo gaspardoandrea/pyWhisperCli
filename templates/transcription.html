@@ -4,13 +4,21 @@
         <code>{{ transcription.id }}</code>
         {{ transcription.audio_document.description }}
     </h1>
+    <audio controls preload="auto" id='audio-{{ audio_document.id }}' class="d-none">
+        <source src="{{ audio_document.get_resource_link }}" type="{{ audio_document.get_mime_type }}">
+    </audio>
     {% for p in paragraphs %}
-    <p class="mb-4">
-        {% for segment in p %}
-            <code data-start="{{ segment.start }}" data-end="{{ segment.end }}">
-                {{ segment.get_formatted_start }}
-            </code> {{ segment.text }}
-        {% endfor %}
-    </p>
+        <p class="mb-4 transcribed">
+            {% for segment in p %}
+                <span>
+                <code class="btn btn-sm btn-outline-dark"
+                      data-start="{{ segment.start }}"
+                      data-end="{{ segment.end }}">
+                    {{ segment.get_formatted_start }}
+                </code>
+                    <span class="text">{{ segment.text }}</span>
+                </span>
+            {% endfor %}
+        </p>
     {% endfor %}
 {% endblock %}

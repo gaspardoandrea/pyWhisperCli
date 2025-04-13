@@ -127,6 +127,27 @@ let mediaManager = function ($) {
         }
     }
 
+    my.playSegment = function () {
+        $('.transcribed code').removeClass("btn-outline-danger").addClass("btn-outline-dark")
+        $('.transcribed span.text').removeClass("playing-segment")
+        $(this).addClass("btn-outline-danger").removeClass("btn-outline-dark")
+        $(this).parent().find("span.text").addClass("playing-segment")
+        if (my.fragmentTimeout) {
+            clearTimeout(my.fragmentTimeout)
+        }
+        let audio = $('audio')
+        let start = parseFloat($(this).data("start"))
+        let end = parseFloat($(this).data("end"))
+        my.playAudio(audio)
+        audio[0].currentTime = start
+        audio.on("ended", my.stopAudio)
+        my.fragmentTimeout = setTimeout(function () {
+            $('.transcribed code').removeClass("btn-outline-danger").addClass("btn-outline-dark")
+            $('.transcribed span.text').removeClass("playing-segment")
+            my.stopAudio()
+        }, (end - start) * 1000)
+    }
+
     that.initEvents = function () {
         $(".btn-play-audio-document").click(my.playFromRow)
         $(".btn-stop-audio-document").click(my.stopFromRow)
@@ -138,6 +159,8 @@ let mediaManager = function ($) {
         my.playingNowTime = my.progress.parent().find('.playing-now-time')
         my.playingNowTotalTime = my.progress.parent().find('.playing-total-time')
         my.progress.click(my.seekFromClick)
+
+        $('.transcribed code').click(my.playSegment)
     }
 
     $(my.init);

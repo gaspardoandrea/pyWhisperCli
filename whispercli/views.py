@@ -123,6 +123,7 @@ def transcription(request, doc_id):
     tr = Transcription.objects.filter(model=model).filter(audio_document=doc_id).first()
     paragraphs = tr.get_paragraphs()
     context = {
+        'audio_document': tr.audio_document,
         'settings': Settings.get_settings(),
         'version': Whispercli.version,
         'models': MODELS,

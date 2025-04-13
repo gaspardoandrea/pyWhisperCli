@@ -1,0 +1,10 @@
+p.transcribed {
+    code {
+        cursor: pointer;
+        padding: .05rem .5rem;
+    }
+
+    .playing-segment {
+        background-color: rgba(241, 193, 8, 0.47);
+    }
+}
